@@ -62,11 +62,9 @@
         ) !important;
     }
 }
-
 #sidebar-box box#sidebar-header {
     border-bottom: none !important;
 }
-
 window.sidebar-panel {
     box-shadow: var(--box-shadow-10) !important;
     background: var(--zen-main-browser-background) !important;
@@ -92,4 +90,31 @@ treechildren.sidebar-placesTreechildren::-moz-tree-image(selected) {
 treechildren.sidebar-placesTreechildren::-moz-tree-image(selected, container),
 treechildren.sidebar-placesTreechildren::-moz-tree-twisty {
     fill: var(--toolbox-textcolor) !important;
+}
+
+/* View Button Styles */
+window.sidebar-panel hbox#sidebar-search-container button#viewButton {
+    appearance: none !important;
+    margin-inline-end: 4px !important;
+    border-radius: 6px !important;
+    border: 1px solid transparent !important;
+    padding: 2px 4px !important;
+    background: transparent !important;
+}
+window.sidebar-panel hbox#sidebar-search-container button#viewButton:hover {
+    background-color: color-mix(
+        in srgb,
+        currentColor 10%,
+        transparent
+    ) !important;
+}
+window.sidebar-panel hbox#sidebar-search-container button#viewButton:active {
+    background-color: color-mix(
+        in srgb,
+        currentColor 15%,
+        transparent
+    ) !important;
+}
+window.sidebar-panel hbox#sidebar-search-container {
+    margin-bottom: 1rem !important;
 }
