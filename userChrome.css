@@ -1,20 +1,53 @@
 :root {
     --floating-sidebar-transform-translateX: 110%;
-    --floating-sidebar-transform-translateY: 1%;
     --floating-sidebar-position-right: 1rem;
     --floating-sidebar-position-left: auto;
+    --floating-sidebar-height: 98%;
+    --floating-sidebar-width: 23rem;
+    --floating-sidebar-transform-translateY: 1%;
+    --floating-sidebar-bg: color-mix(
+        in hsl,
+        var(--zen-main-browser-background),
+        transparent 10%
+    );
+}
+
+/* Size */
+:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-size="full"]) {
+    --floating-sidebar-height: 98%;
+    --floating-sidebar-width: 23rem;
+    --floating-sidebar-transform-translateY: 1%;
+}
+:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-size="compact"]) {
+    --floating-sidebar-height: 80%;
+    --floating-sidebar-width: 22rem;
+    --floating-sidebar-transform-translateY: 14%;
 }
 
 /* Position */
-:root:has(#theme-Floating-sidebar[theme-floating_sidebar-position="right"]) {
+:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-position="right"]) {
     --floating-sidebar-transform-translateX: 110%;
     --floating-sidebar-position-right: 1rem;
     --floating-sidebar-position-left: auto;
 }
-:root:has(#theme-Floating-sidebar[theme-floating_sidebar-position="left"]) {
+:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-position="left"]) {
     --floating-sidebar-transform-translateX: -110%;
     --floating-sidebar-position-right: auto;
     --floating-sidebar-position-left: 1rem;
+}
+
+/* Transparency */
+:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-background="solid"]) {
+    --floating-sidebar-bg: var(--zen-main-browser-background);
+}
+:root:has(
+    #theme-Floating-Sidebar[theme-floating_sidebar-background="transparent"]
+) {
+    --floating-sidebar-bg: color-mix(
+        in hsl,
+        var(--zen-main-browser-background),
+        transparent 10%
+    );
 }
 
 /* Disable splitter */
@@ -30,25 +63,27 @@
 /* Sidebar Tab Styles */
 #sidebar-box {
     order: none !important;
-    height: 98% !important;
-    width: 25em !important;
+    /*height: 98% !important;
+    width: 25em !important;*/
+    height: var(--floating-sidebar-height) !important;
+    width: var(--floating-sidebar-width) !important;
 
     position: fixed !important;
 
     right: var(--floating-sidebar-position-right);
     left: var(--floating-sidebar-position-left);
 
-    transform: translateX(
-        var(--floating-sidebar-transform-translateX),
-        var(--floating-sidebar-transform-translateY)
-    ) !important;
-    z-index: 1 !important;
-
     border-radius: var(--zen-border-radius) !important;
 
     box-shadow: var(--box-shadow-10) !important;
-    background: var(--zen-main-browser-background) !important;
+    background: var(--floating-sidebar-bg) !important;
     border: 1px solid var(--zen-colors-border) !important;
+    z-index: 1 !important;
+
+    transform: translate(
+        var(--floating-sidebar-transform-translateX),
+        var(--floating-sidebar-transform-translateY)
+    ) !important;
 
     transition: transform 0.35s !important;
     visibility: visible !important;
@@ -67,7 +102,7 @@
 }
 window.sidebar-panel {
     box-shadow: var(--box-shadow-10) !important;
-    background: var(--zen-main-browser-background) !important;
+    background: var(--floating-sidebar-bg) !important;
 }
 
 /* TreeChildren Style */
@@ -118,3 +153,4 @@ window.sidebar-panel hbox#sidebar-search-container button#viewButton:active {
 window.sidebar-panel hbox#sidebar-search-container {
     margin-bottom: 1rem !important;
 }
+
