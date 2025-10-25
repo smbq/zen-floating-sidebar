@@ -1,16 +1,9 @@
 [
   {
-    "property": "theme.floating_sidebar.background",
-    "label": "Background",
-    "type": "dropdown",
-    "placeholder": "Transparent",
-    "defaultValue": "transparent",
-    "options": [
-      {
-        "label": "Solid",
-        "value": "solid"
-      }
-    ]
+    "property": "theme.floating_sidebar.transparency",
+    "label": "Transparent background",
+    "type": "checkbox",
+    "defaultValue": true
   },
   {
     "property": "theme.floating_sidebar.position",
@@ -39,4 +32,3 @@
     ]
   }
 ]
-
