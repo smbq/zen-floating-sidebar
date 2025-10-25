@@ -1,18 +1,42 @@
 [
   {
+    "property": "theme.floating_sidebar.background",
+    "label": "Background",
+    "type": "dropdown",
+    "placeholder": "Transparent",
+    "defaultValue": "transparent",
+    "options": [
+      {
+        "label": "Solid",
+        "value": "solid"
+      }
+    ]
+  },
+  {
     "property": "theme.floating_sidebar.position",
     "label": "Position",
     "type": "dropdown",
+    "placeholder": "Right",
     "defaultValue": "right",
     "options": [
-      {
-        "label": "Right",
-        "value": "right"
-      },
       {
         "label": "Left",
         "value": "left"
       }
     ]
+  },
+  {
+    "property": "theme.floating_sidebar.size",
+    "label": "Size",
+    "type": "dropdown",
+    "placeholder": "Full",
+    "defaultValue": "full",
+    "options": [
+      {
+        "label": "Compact",
+        "value": "compact"
+      }
+    ]
   }
 ]
+
