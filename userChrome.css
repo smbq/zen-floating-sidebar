@@ -5,11 +5,7 @@
     --floating-sidebar-height: 98%;
     --floating-sidebar-width: 23rem;
     --floating-sidebar-transform-translateY: 1%;
-    --floating-sidebar-bg: color-mix(
-        in hsl,
-        var(--zen-main-browser-background),
-        transparent 10%
-    );
+    --floating-sidebar-bg: var(--zen-main-browser-background);
 }
 
 /* Size */
@@ -36,20 +32,6 @@
     --floating-sidebar-position-left: 1rem;
 }
 
-/* Transparency */
-:root:has(#theme-Floating-Sidebar[theme-floating_sidebar-background="solid"]) {
-    --floating-sidebar-bg: var(--zen-main-browser-background);
-}
-:root:has(
-    #theme-Floating-Sidebar[theme-floating_sidebar-background="transparent"]
-) {
-    --floating-sidebar-bg: color-mix(
-        in hsl,
-        var(--zen-main-browser-background),
-        transparent 10%
-    );
-}
-
 /* Disable splitter */
 #sidebar-box + splitter {
     display: none !important;
@@ -63,21 +45,25 @@
 /* Sidebar Tab Styles */
 #sidebar-box {
     order: none !important;
-    /*height: 98% !important;
-    width: 25em !important;*/
     height: var(--floating-sidebar-height) !important;
     width: var(--floating-sidebar-width) !important;
 
     position: fixed !important;
-
     right: var(--floating-sidebar-position-right);
     left: var(--floating-sidebar-position-left);
 
-    border-radius: var(--zen-border-radius) !important;
+    @media (-moz-bool-pref: "theme.floating_sidebar.transparency") {
+        --floating-sidebar-bg: color-mix(
+            in hsl,
+            var(--zen-main-browser-background),
+            transparent 10%
+        );
+    }
 
-    box-shadow: var(--box-shadow-10) !important;
     background: var(--floating-sidebar-bg) !important;
+    box-shadow: var(--box-shadow-10) !important;
     border: 1px solid var(--zen-colors-border) !important;
+    border-radius: var(--zen-border-radius) !important;
     z-index: 1 !important;
 
     transform: translate(
@@ -153,4 +139,3 @@ window.sidebar-panel hbox#sidebar-search-container button#viewButton:active {
 window.sidebar-panel hbox#sidebar-search-container {
     margin-bottom: 1rem !important;
 }
-
